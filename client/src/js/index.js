@@ -9,3 +9,9 @@ document.getElementById('headerBtn').addEventListener('click', headerClick);
 
 // Set src of #box element to Yellow
 document.getElementById('box').src = Yellow;
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+	.then(() => console.log('SW registered'))
+	.catch(err => console.log('Err registering sw', err))
+}
