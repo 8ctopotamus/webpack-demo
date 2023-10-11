@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const path = require('path')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -59,6 +60,9 @@ module.exports = {
           sizes: [96, 128, 192, 256, 300],
         }
       ]
+    }),
+    new GenerateSW({
+      swDest: './sw.js'
     })
   ]
 }
